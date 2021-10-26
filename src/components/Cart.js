@@ -13,12 +13,14 @@ const Cart = () => {
     return (
         <div>
             <button onClick={data.clearCart} className="clearCartBtn">Clear Cart</button>
+            <h1>Cart total: {data.cartTotal}</h1>
             {data.cartItems.map((item) => {
                 return (
                     <CartItem {...item}/>
                 )
             })}
 
+        
 
         </div>
     );
