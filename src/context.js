@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [items, setItems] = useState([
     {
-      id: "0",
+      id: 0,
       name: "t shirt",
       price: 3.99,
       image:
@@ -14,7 +14,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "1",
+      id: 1,
       name: "Jeans",
       price: 19,
       image:
@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "2",
+      id: 2,
       name: "Shoes",
       price: 29,
       image:
@@ -30,7 +30,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "3",
+      id: 3,
       name: "Shoes",
       price: 30,
       image:
@@ -38,7 +38,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "4",
+      id: 4,
       name: "Shoes",
       price: 90,
       image:
@@ -46,7 +46,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "5",
+      id: 5,
       name: "Shoes",
       price: 23,
       image:
@@ -54,7 +54,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "6",
+      id: 6,
       name: "Shoes",
       price: "$29",
       image:
@@ -62,7 +62,7 @@ const AppProvider = ({ children }) => {
       amount: 0,
     },
     {
-      id: "7",
+      id: 7,
       name: "Shoes",
       price: 10,
       image:
@@ -75,16 +75,15 @@ const AppProvider = ({ children }) => {
   const [cartTotal, setCartTotal] = useState(0);
 
   const sumTotalCart = () => {
-    const total = cartItems.reduce(
-      (total, cartItem) => total + cartItem.price * cartItem.amount,
-      0
-    ).toFixed(2);
+    const total = cartItems
+      .reduce((total, cartItem) => total + cartItem.price * cartItem.amount, 0)
+      .toFixed(2);
     setCartTotal(total);
   };
 
   useEffect(() => {
-    sumTotalCart()
-  }, [cartItems])
+    sumTotalCart();
+  }, [cartItems]);
 
   const addItemToCart = (id) => {
     //   cartItems.push(id)
@@ -146,23 +145,42 @@ const AppProvider = ({ children }) => {
     // setCartItems(...cartItems, cartItems[id].amount+=1)
     // setCartItems(prevItems => prevItems[id].amount +1)
     // setCartItems(prevItems => [...prevItems, prevItems[id].amount+=1])
-    setCartItems([...cartItems, (cartItems[id].amount += 1)]);
+    // setCartItems([...cartItems, (cartItems[id].amount += 1)]);
+    // console.log([...cartItems, (cartItems[id].amount += 1)]);s
+    const newCart = [...cartItems];
+    console.log('amount')
+    console.log(newCart)
+    let objfind = newCart.find(o => o.id === id)
+    console.log('find')
+    console.log(objfind)
+    objfind.amount += 1
+    console.log(objfind)
+    // newCart[id].amount += 1;
+    console.log("newcart");
+    console.log(newCart);
+    setCartItems(newCart);
     // setCartItems(cartItems[id].amount += 1)
-    console.log(cartItems);
+    // console.log(cartItems);
   };
 
   const decreaseItem = (id) => {
     // cartItems[id].amount -=1;
-    if (cartItems[id].amount === 0) {
-      // console.log('empty')
-      // cartItems.filter((item) => item.id === id)
-      setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-    }
-    setCartItems([...cartItems, (cartItems[id].amount -= 1)]);
-    if (cartItems[id].amount === 0) {
-      // setCartItems(prevItems => prevItems.filter((item) => item.id !==id))
-      setCartItems(cartItems.filter((item) => item.id !== id));
-    }
+    // if (cartItems[id].amount === 0) {
+    //   // console.log('empty')
+    //   // cartItems.filter((item) => item.id === id)
+    //   setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    // }
+    // setCartItems([...cartItems, (cartItems[id].amount -= 1)]);
+    // if (cartItems[id].amount === 0) {
+    //   // setCartItems(prevItems => prevItems.filter((item) => item.id !==id))
+    //   setCartItems(cartItems.filter((item) => item.id !== id));
+    // } else {
+      const newCart = [...cartItems];
+      // newCart[id].amount -= 1;
+      let objfind = newCart.find(o => o.id === id)
+      objfind.amount -= 1
+      setCartItems(newCart);
+    // }
   };
 
   const removeItem = (id) => {
