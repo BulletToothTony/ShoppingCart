@@ -56,7 +56,7 @@ const AppProvider = ({ children }) => {
     {
       id: 6,
       name: "Shoes",
-      price: "$29",
+      price: 29,
       image:
         "https://images.unsplash.com/photo-1563494270-4e133aea0ede?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
       amount: 0,
@@ -171,16 +171,16 @@ const AppProvider = ({ children }) => {
     //   setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     // }
     // setCartItems([...cartItems, (cartItems[id].amount -= 1)]);
-    // if (cartItems[id].amount === 0) {
-    //   // setCartItems(prevItems => prevItems.filter((item) => item.id !==id))
-    //   setCartItems(cartItems.filter((item) => item.id !== id));
-    // } else {
+    if (cartItems[id].amount === 0) {
+      // setCartItems(prevItems => prevItems.filter((item) => item.id !==id))
+      setCartItems(cartItems.filter((item) => item.id !== id));
+    } else {
       const newCart = [...cartItems];
       // newCart[id].amount -= 1;
       let objfind = newCart.find(o => o.id === id)
       objfind.amount -= 1
       setCartItems(newCart);
-    // }
+    }
   };
 
   const removeItem = (id) => {
