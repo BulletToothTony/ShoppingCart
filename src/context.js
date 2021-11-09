@@ -7,7 +7,7 @@ const AppProvider = ({ children }) => {
   const [items, setItems] = useState([
     {
       id: 0,
-      name: "t shirt",
+      name: "Earth",
       price: 3.99,
       image:
         "https://images.unsplash.com/photo-1633990017009-4d1eab0bf0d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1974&q=80",
@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 1,
-      name: "Jeans",
+      name: "Flames",
       price: 19,
       image:
         "https://images.unsplash.com/photo-1618325500063-14cd8117354c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 2,
-      name: "Shoes",
+      name: "Garden",
       price: 29,
       image:
         "https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=730&q=80",
@@ -31,7 +31,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 3,
-      name: "Shoes",
+      name: "Gold",
       price: 30,
       image:
         "https://images.unsplash.com/photo-1517196084897-498e0abd7c2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 4,
-      name: "Shoes",
+      name: "Smoke",
       price: 90,
       image:
         "https://images.unsplash.com/photo-1547070451-e3857a8ea62a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
@@ -47,7 +47,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 5,
-      name: "Shoes",
+      name: "Clouds",
       price: 23,
       image:
         "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
@@ -55,7 +55,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 6,
-      name: "Shoes",
+      name: "Cali",
       price: 29,
       image:
         "https://images.unsplash.com/photo-1563494270-4e133aea0ede?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
@@ -63,7 +63,7 @@ const AppProvider = ({ children }) => {
     },
     {
       id: 7,
-      name: "Shoes",
+      name: "Fog",
       price: 10,
       image:
         "https://images.unsplash.com/photo-1519066473994-a7506988851d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=731&q=80",
@@ -171,7 +171,9 @@ const AppProvider = ({ children }) => {
     //   setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
     // }
     // setCartItems([...cartItems, (cartItems[id].amount -= 1)]);
-    if (cartItems[id].amount === 0) {
+    const newCart = [...cartItems]
+    let objfind = newCart.find(o => o.id === id)
+    if (objfind.amount <= 1) {
       // setCartItems(prevItems => prevItems.filter((item) => item.id !==id))
       setCartItems(cartItems.filter((item) => item.id !== id));
     } else {
