@@ -6,18 +6,17 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 .navBar {
   background-color: rgb(236, 236, 236);
@@ -40,7 +39,7 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1474&q=80');
+  background-image: url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1474&q=80");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -103,4 +102,38 @@ img {
   padding: 1rem;
   /* top: 80%;
   left: 50%; */
+}
+
+.itemAddBtn {
+  display: inline-block;
+  padding: 0.5em 3em;
+  border: 0.16em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #3b3b3b;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.itemAddBtn:hover {
+  color: #000000;
+  border-color: #dddddd;
+}
+
+.itemAddBtn:active {
+  color: #080808;
+  border-color: #000000;
+}
+
+
+.singleItemH1 {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #bdbdbd;
 }
